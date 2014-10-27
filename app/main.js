@@ -3,27 +3,28 @@ var mainState = {
 
 	//Here we add all the functions we need for our state
 	//For this project we have three functions
-	
+
 
 	preload: function() {
-		//This function will be exectuted at the beginning
-		//That's where we load the game's assets
+		//Load the image
+		game.load.image('logo', 'logo.png');
+
 	},
 
 	create: function() {
-		//This function is called after the preload function
-		//Here we set up the game, display sprites, etc.
+		//Display Image on screen
+		this.sprite = game.add.sprite(200, 150, 'logo');
 	},
 
-	update: function () {
-		//This function is called 60 times per second
-		//It contains the games logic
+	update: function() {
+		//Increment the angle of the sprite by 1, 60 times per second
+		this.sprite.angle += 1;
 	}
 };
 
 //We initalize Phaser
 var game = new Phaser.Game(400, 300, Phaser.AUTO, 'gameDiv');
 
-	//And finally we tell Phaser to add and start our 'main' state
-	game.state.add('main', mainState);
-	game.state.add('main');
+//And finally we tell Phaser to add and start our 'main' state
+game.state.add('main', mainState);
+game.state.add('main');
